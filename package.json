@@ -1,7 +1,7 @@
 {
   "name": "extend-test-results-json-with-gitlab-ci-vars",
+  "version": "0.0.0-semantic-release",
   "description": "Extends JSON of the test results with GitLab CI environment variables",
-  "version": "1.0.0",
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
   "bugs": "https://github.com/bahmutov/extend-test-results-json-with-gitlab-ci-vars/issues",
   "config": {
@@ -61,7 +61,8 @@
     "secure": "nsp check",
     "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";",
     "test": "npm run unit",
-    "unit": "mocha src/*-spec.js"
+    "unit": "mocha src/*-spec.js",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "devDependencies": {
     "ban-sensitive-files": "1.8.3",
@@ -72,6 +73,7 @@
     "nsp": "2.5.0",
     "pre-git": "3.10.0",
     "standard": "7.1.2",
-    "standard-format": "2.2.2"
+    "standard-format": "2.2.2",
+    "semantic-release": "^4.3.5"
   }
 }
