@@ -42,6 +42,9 @@
   ],
   "license": "MIT",
   "main": "src/",
+  "bin": {
+    "add-gitlab-ci-vars": "src/index.js"
+  },
   "noScopeName": "extend-test-results-json-with-gitlab-ci-vars",
   "publishConfig": {
     "registry": "http://registry.npmjs.org/"
@@ -61,8 +64,10 @@
     "secure": "nsp check",
     "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";",
     "test": "npm run unit",
+    "posttest": "npm run example",
     "unit": "mocha src/*-spec.js",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "example": "CI_SERVER=test node . ./test/example.json"
   },
   "devDependencies": {
     "ban-sensitive-files": "1.8.3",
