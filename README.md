@@ -8,6 +8,28 @@
 [![semantic-release][semantic-image] ][semantic-url]
 [![js-standard-style][standard-image]][standard-url]
 
+When running GitLab CI with Mocha json reporter you get back just the test results.
+You can save the test results into a json file, for example
+
+```
+mocha --reporter json > example.json
+```
+
+If you run these tests on GitLab CI, you might want to include the build information,
+like commit id, branch name, etc. This module adds the 
+[GitLab CI variables](http://docs.gitlab.com/ce/ci/variables/README.html) to the given JSON
+file and outputs the result to the console.
+
+```
+npm i -D extend-test-results-json-with-gitlab-ci-vars
+mocha --reporter json > example.json
+add-gitlab-ci-vars example.json > out.json
+```
+
+`out.json` will have all variables in property `ci`.
+
+Note: variable `CI_BUILD_TOKEN` is not included, to avoid leaking it.
+
 ### Small print
 
 Author: Gleb Bahmutov &lt;gleb.bahmutov@gmail.com&gt; &copy; 2016
