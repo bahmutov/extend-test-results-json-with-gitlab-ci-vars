@@ -27,7 +27,10 @@ const ciVariables = [
   'CI_BUILD_TRIGGERED',
   // 'CI_BUILD_TOKEN' - not sending this for security
   'CI_PROJECT_ID',
-  'CI_PROJECT_DIR'
+  'CI_PROJECT_DIR',
+  // maybe a couple of dummy variables
+  // for passing user values
+  'CI_PIPELINE'
 ]
 const ci = {}
 ciVariables.forEach((key) => {
